@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  spotJavaPostgres:
+    container_name: spotJavaPostgres
+    image: postgres
+    environment:
+      - POSTGRES_DB=spotJavatdb
+      - POSTGRES_PASSWORD=spotJava
+    ports:
+      - 5432:5432
+    volumes:
+      - spotJavaPostgresData:/data/postgres
+
+volumes:
+  spotJavaPostgresData:
