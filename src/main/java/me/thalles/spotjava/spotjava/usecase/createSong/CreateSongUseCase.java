@@ -1,22 +1,20 @@
-package me.thalles.spotjava.spotjava.usecase.listsongs;
+package me.thalles.spotjava.spotjava.usecase.createSong;
+
 import me.thalles.spotjava.spotjava.entity.Song;
 import me.thalles.spotjava.spotjava.repository.SongsRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
-public class ListSongsUseCase {
+public class CreateSongUseCase {
     private final SongsRepository songsRepository;
 
     @Autowired
-    public ListSongsUseCase(SongsRepository songsRepository) {
+    public CreateSongUseCase(SongsRepository songsRepository) {
         this.songsRepository = songsRepository;
     }
 
-    public List<Song> list() {
-        return this.songsRepository.findAll();
+    public Song create(Song song) {
+        return this.songsRepository.save(song);
     }
 }
